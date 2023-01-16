@@ -1,5 +1,6 @@
 ﻿
 using design_pattern.AbstractFactory;
+using design_pattern.Builder;
 using design_pattern.Prototype;
 
 #region 抽象工廠
@@ -27,16 +28,24 @@ using design_pattern.Prototype;
 //Console.WriteLine($"生產 {car.GetCarType()} X 1");
 #endregion
 #region 原型模式
-ConcretePrototypeA prototypeA = new()
-{
-    x = 1,
-    y = 2,
-    Name = "ProtoTypeA"
-};
-Console.WriteLine(prototypeA.ToString());
+//ConcretePrototypeA prototypeA = new()
+//{
+//    x = 1,
+//    y = 2,
+//    Name = "ProtoTypeA"
+//};
+//Console.WriteLine(prototypeA.ToString());
 
-ConcretePrototypeA prototypeAClone = (ConcretePrototypeA)prototypeA.Clone();
-prototypeAClone.Name = "ProtoTypeAClone";
-Console.WriteLine(prototypeAClone.ToString());
+//ConcretePrototypeA prototypeAClone = (ConcretePrototypeA)prototypeA.Clone();
+//prototypeAClone.Name = "ProtoTypeAClone";
+//Console.WriteLine(prototypeAClone.ToString());
+#endregion
+#region 創造者模式
+Builder builder = new ConcreteBuilder();
+Director.Construct(builder);
+
+var house = builder.GetProduct();
+
+Console.WriteLine(house.ToString());
 #endregion
 Console.ReadKey();
