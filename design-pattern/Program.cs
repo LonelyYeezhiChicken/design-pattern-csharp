@@ -1,5 +1,6 @@
 ﻿
 using design_pattern.AbstractFactory;
+using design_pattern.Adapter;
 using design_pattern.Builder;
 using design_pattern.Prototype;
 
@@ -41,11 +42,15 @@ using design_pattern.Prototype;
 //Console.WriteLine(prototypeAClone.ToString());
 #endregion
 #region 創造者模式
-Builder builder = new ConcreteBuilder();
-Director.Construct(builder);
+//Builder builder = new ConcreteBuilder();
+//Director.Construct(builder);
 
-var house = builder.GetProduct();
+//var house = builder.GetProduct();
 
-Console.WriteLine(house.ToString());
+//Console.WriteLine(house.ToString());
+#endregion
+#region 轉接器模式
+FileTool.Factory("json").Create();
+FileTool.Factory("csv").Create();
 #endregion
 Console.ReadKey();
